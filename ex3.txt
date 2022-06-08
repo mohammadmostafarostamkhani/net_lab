@@ -1,1 +1,3 @@
+linear mn --topo linear,4,2
+
 iperf h1 h3
