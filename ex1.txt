@@ -152,7 +152,10 @@ def run():
     CLI(net)
 
 
-    # sw1.cmd('iptables -t nat -A PREROUTING -s 52.61.80.5 -d 52.61.89.4 -j DNAT --to 10.10.34.3')
+    r1.cmd('iptables -t nat -A PREROUTING -s 52.61.80.5 -j DNAT --to 52.61.89.4')
+    r1.cmd('iptables -t nat -A POSTROUTING -o r1-eth1 -s 52.61.80.5 -j MASQUERADE')
+
+
 
     info( '*** Closing the terminals on the hosts\n' )
     r1.cmd("killall xterm")
